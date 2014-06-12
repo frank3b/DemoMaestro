@@ -1,0 +1,51 @@
+[
+		{
+			"Code" : "1",
+			"ProductName": "Blaster Extreme",
+			"Price": "9.88",
+			"CurrencyCode": "COP",
+			"Thumbnail" : "http://sapes1.sapdevcenter.com:8080/SAP/PUBLIC/BC/NWDEMO_MODEL/IMAGES/HT-1001.jpg"
+		},
+		{
+			"Code" : "2",
+			"ProductName": "Beam Breaker B-1",
+			"Price": "9.88",
+			"CurrencyCode": "COP",
+			"Thumbnail" : "http://sapes1.sapdevcenter.com:8080/SAP/PUBLIC/BC/NWDEMO_MODEL/IMAGES/HT-1001.jpg"
+		},
+		{
+			"Code" : "3",
+			"ProductName": "Notebook Basic 15",
+			"Price": "9.88",
+			"CurrencyCode": "COP",
+			"Thumbnail" : "http://sapes1.sapdevcenter.com:8080/SAP/PUBLIC/BC/NWDEMO_MODEL/IMAGES/HT-1001.jpg"
+		},
+		{
+			"Code" : "4",
+			"ProductName": "Notebook Basic 18",
+			"Price": "9.88",
+			"CurrencyCode": "COP",
+			"Thumbnail" : "http://sapes1.sapdevcenter.com:8080/SAP/PUBLIC/BC/NWDEMO_MODEL/IMAGES/HT-1001.jpg"
+		},
+		{
+			"Code" : "5",
+			"ProductName": "Audio/Video Cable Kit - 12 ft",
+			"Price": "9.88",
+			"CurrencyCode": "COP",
+			"Thumbnail" : "http://sapes1.sapdevcenter.com:8080/SAP/PUBLIC/BC/NWDEMO_MODEL/IMAGES/HT-1001.jpg"
+		},
+		{
+			"Code" : "6",
+			"ProductName": "Smart Office",
+			"Price": "9.88",
+			"CurrencyCode": "COP",
+			"Thumbnail" : "http://sapes1.sapdevcenter.com:8080/SAP/PUBLIC/BC/NWDEMO_MODEL/IMAGES/HT-1001.jpg"
+		},
+		{
+			"Code" : "7",
+			"ProductName": "7\" Widescreen Portable DVD Player w MP3",
+			"Price": "9.88",
+			"CurrencyCode": "COP",
+			"Thumbnail" : "http://sapes1.sapdevcenter.com:8080/SAP/PUBLIC/BC/NWDEMO_MODEL/IMAGES/HT-1001.jpg"
+		}
+	]

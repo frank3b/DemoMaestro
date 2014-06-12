@@ -1,0 +1,67 @@
+[
+{
+"Code":"156745345", 
+"TotalWeight":"12", 
+"TotalValue":"545.02",
+"Status":"Inicial", 
+"CurrencyCode":"COP",
+"ValidFrom":"25/05/2014", 
+"ValidTo":"25/05/2015",
+"Petitioner": {
+			"Code" : "3",
+			"FirstName" : "Friedrich",
+			"LastName" : "Der Große",
+			"Department" : "Approving Department",
+			"Thumbnail" : "http://upload.wikimedia.org/wikipedia/commons/f/fc/Frederic_II_de_prusse.jpg"
+		},
+	
+"Products" : [
+		{
+			"Code" : "1",
+			"ProductName": "Blaster Extreme",
+			"Price": "9.88",
+			"CurrencyCode": "COP",
+			"Thumbnail" : "http://sapes1.sapdevcenter.com:8080/SAP/PUBLIC/BC/NWDEMO_MODEL/IMAGES/HT-1001.jpg"
+		},		
+		{
+			"Code" : "7",
+			"ProductName": "7\" Widescreen Portable DVD Player w MP3",
+			"Price": "9.88",
+			"CurrencyCode": "COP",
+			"Thumbnail" : "http://sapes1.sapdevcenter.com:8080/SAP/PUBLIC/BC/NWDEMO_MODEL/IMAGES/HT-1001.jpg"
+		}
+	]
+
+},
+
+{
+"Code":"243543545", 
+"TotalWeight":"14", 
+"TotalValue":"246.03", 
+"Status":"Pendiente", 
+"CurrencyCode":"COP",
+"ValidFrom":"01/05/2014", 
+"ValidTo":"01/05/2015",
+"Petitioner": {
+			"Code" : "3",
+			"FirstName" : "Friedrich",
+			"LastName" : "Der Große",
+			"Department" : "Approving Department",
+			"Thumbnail" : "http://upload.wikimedia.org/wikipedia/commons/f/fc/Frederic_II_de_prusse.jpg"
+		},
+	
+"Products" : [				
+		{
+			"Code" : "7",
+			"ProductName": "7\" Widescreen Portable DVD Player w MP3",
+			"Price": "9.88",
+			"CurrencyCode": "COP",
+			"Thumbnail" : "http://sapes1.sapdevcenter.com:8080/SAP/PUBLIC/BC/NWDEMO_MODEL/IMAGES/HT-1001.jpg"
+		}
+	]
+
+}
+
+]
+
+
