@@ -5,7 +5,7 @@ sap.ui
 		{
 		    onInit : function() {
 		    	
-		    sap.ui.localResources("util");	
+		    /*sap.ui.localResources("util");	
 		    sap.ui.localResources("model");
 		    sap.ui.localResources("authentication");
 		    jQuery.sap.require("util.Utility");	
@@ -13,7 +13,9 @@ sap.ui
 		    jQuery.sap.require("util.BusyDialogHandler");
 			jQuery.sap.require("model.model");
 			jQuery.sap.require("authentication.Authentication");
-			
+			*/
+		    sap.ui.localResources("util");		
+		    jQuery.sap.require("util.formatter");
 			loadTheme("custom_bluecrystal");
 			
 			// Initialize history management
