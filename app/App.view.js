@@ -77,6 +77,18 @@ sap.ui.jsview("app.App", {
         this.app.toDetail("CoffeeList");
         this.app.toMaster("Menu");
         */
+		
+		//FIXME - remove when no use Kinvey
+		var promise = Kinvey.init({
+		    appKey    : 'kid_VTS8kUwpI9',
+		    appSecret : 'a34280b4eff141aa94bdaf9aef12a48a'
+		});
+
+		promise.then( function() {
+			getPetitioners();
+			getProducts();	
+		});
+
 
         return this.splitApp;
     }
