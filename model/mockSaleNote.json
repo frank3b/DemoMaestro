@@ -6,10 +6,7 @@
 "CurrencyCode" : "PEN",
 "ValidFrom" : "",
 "ValidTo" : "",
-"Petitioner" : {			
-		},	
-"Products" : [
-		
-	]
-
+"SaleNoteType" : "Nota",
+"Petitioner" : { },	
+"Products" : [ 	]	
 }

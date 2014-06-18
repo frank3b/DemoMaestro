@@ -34,6 +34,9 @@ sap.ui.jsview("app.details.NewSaleNote", {
 			id : "productsHelpDialog",
 			title : "{i18n>PRODUCTS_LIST_TITLE}",
 			class : "sapUiPopupWithPadding",
+			noDataText  : "{i18n>NO_DATA}",
+			//growing : true, No funciona
+			growingThreshold : 5,
 			search : function(oEvent) {
 				oController.handleProductsValueHelpSearch(oEvent);
 			},
@@ -45,12 +48,30 @@ sap.ui.jsview("app.details.NewSaleNote", {
 			},
 		});
 		this.productsHelpDialog.setModel( oProductsModel );
-		var olistProductsTemplate = new sap.m.StandardListItem({
+		/*var olistProductsTemplate = new sap.m.StandardListItem({
 			title : "{Code} {ProductName}",
 			type : sap.m.ListType.Active,
 			description : "{Price} {CurrencyCode}"
-		});	
-		this.productsHelpDialog.bindAggregation("items", "/", olistProductsTemplate);
+		});
+		*/	
+		var items = new sap.m.ObjectListItem({
+			title : "{Code} {ProductName}",
+			number : {path : "Price", formatter : util.formatter.Number},
+			numberUnit : "{CurrencyCode}",
+			attributes : [ 
+			new sap.m.ObjectAttribute({
+				text : "Existencia. {Stock}"
+			})
+			],
+			firstStatus : new sap.m.ObjectStatus({
+				text : { path: 'Stock',
+					formatter: util.formatter.ProductsStateText },
+				state: { path: 'Stock',
+					formatter: util.formatter.ProductsState }
+			})
+		});
+		
+		this.productsHelpDialog.bindAggregation("items", "/", items);
 		
 
 		//Petitioner Search Help
@@ -109,6 +130,27 @@ sap.ui.jsview("app.details.NewSaleNote", {
 			number : "0",
 			unit : "{/CurrencyCode}"
 		});
+		this.saleNoteTypeSelect = new sap.m.Select({
+			id : "saleNoteTypeSelect",
+			type : "Default",
+			autoAdjustWidth : true,
+			selectedKey : "{/SaleNoteType}",
+			items : [ 
+			    new sap.ui.core.Item({
+					key : "Proforma",
+					text : "{i18n>SALENOTE_TYPE_PROFORMA}"
+			    }), 
+			    new sap.ui.core.Item({ 
+				    key : "Nota", 
+				    text : "{i18n>SALENOTE_TYPE_NOTA}" 
+			    }), 
+				new sap.ui.core.Item({ 
+					key : "Pre", 
+					text: "{i18n>SALENOTE_TYPE_PRE}" 
+				})
+			]
+		});
+		
 		//sap.m.DisplayListItem({ label : oBundle.getText("SALESORDER_CREATEDAT"), value :{path : "CreatedAt", formatter : fnDateTimeFormatter}})
 		var oForm1 = new sap.ui.layout.form.Form("F1", {
 			//title : new sap.ui.core.Title({
@@ -121,7 +163,11 @@ sap.ui.jsview("app.details.NewSaleNote", {
 				formElements : [ 
 				new sap.ui.layout.form.FormElement({
 					label : ""
-				}),                
+				}),   
+				new sap.ui.layout.form.FormElement({
+					label : "{i18n>SALE_NOTE_TYPE_LABEL}",
+					fields : [ this.saleNoteTypeSelect ]
+				}),
 				new sap.ui.layout.form.FormElement({
 					label : "{i18n>SALENOTE_PETITIONER}",
 					fields : [ this.petitioner ]
@@ -184,6 +230,7 @@ sap.ui.jsview("app.details.NewSaleNote", {
 		//Products Table
 		this.oTableItems = new sap.m.Table("itemsDataTable", {
 			mode : "SingleSelectMaster",
+			noDataText  : "{i18n>NO_DATA}",
 			//includeItemInSelection : true,
 			/*delete : function(oEvent) {
 				oController.handleDeleteProduct(oEvent);

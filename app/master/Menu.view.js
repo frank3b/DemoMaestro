@@ -34,7 +34,12 @@ sap.ui.jsview("app.master.Menu", {
 			buttons : [ new sap.m.Button({
 				text : "{i18n>MENU_NEW_SALE_NOTE}",
 				icon : "sap-icon://create",
-				press : [ oController.onNewSaleNote, oController ],
+				press : [ oController.onNewSaleNote, oController ]
+			}),
+			new sap.m.Button({
+				text : "{i18n>MENU_STOCK}",
+				icon : "sap-icon://retail-store",
+				press : [ oController.onStockSearch, oController ]
 			}),
 			// new sap.m.Button({
 			// text: "{i18n>MENU_SALES_NOTES}",
@@ -62,7 +67,10 @@ sap.ui.jsview("app.master.Menu", {
 
 		// Sales notes list
 		this.oList = new sap.m.List({
-			id : "list"
+			id : "list",
+			growing : true,
+			growingScrollToLoad : false,
+			growingThreshold : 10,
 		});
 		this.oList.setModel(oSalesNotesModel);
 
@@ -84,7 +92,8 @@ sap.ui.jsview("app.master.Menu", {
 					formatter: util.formatter.StatusState }
 			})
 		});
-		this.oList.bindItems("/", this.items);
+		var sorter = new sap.ui.model.Sorter("_kmd/ect", true);
+		this.oList.bindItems("/", this.items, sorter);
 
 		// create search field
 		this.searchField = new sap.m.SearchField("searchField", {
@@ -92,7 +101,7 @@ sap.ui.jsview("app.master.Menu", {
 			layoutData : new sap.m.FlexItemData({
 				growFactor : 1
 			}),
-			liveChange : [ oController.onLiveChange, oController ],
+			liveChange : [ oController.onLiveChange, oController],
 			maxLength : 127,
 		});
 

@@ -207,4 +207,16 @@ sap.ui.controller("app.master.Menu", {
         });
 
     },
+    
+    onStockSearch : function(oEvent) {
+    	var oBindingContext = oEvent.oSource.getBindingContext();
+
+		sap.ui.getCore().getEventBus().publish("nav", "to", {
+			viewId : "app.details.Stock",
+			data : {
+				bindingContext : oBindingContext
+			}
+		});
+    }
+    
 });

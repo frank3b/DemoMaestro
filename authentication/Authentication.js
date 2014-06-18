@@ -92,6 +92,7 @@ function initKinveyLogin(userName, password, oBindingContext){
 }
 
 function loginKiveyUser(userName, password, oBindingContext){
+	jQuery.sap.require("sap.m.MessageBox");
 	
 	Kinvey.User.login(userName, password, {
 		
@@ -113,6 +114,12 @@ function loginKiveyUser(userName, password, oBindingContext){
         error: function(error){
         	jQuery.sap.log.error("Error login..." + error.description);
         	sap.ui.getCore().getEventBus().publish("busyDialog", "close");
+        	if(error.name == 'InvalidCredentials') {
+        		sap.m.MessageBox.alert( oBundle.getText("LOGIN_ERROR") );
+        	} else {
+        		sap.m.MessageBox.alert( oBundle.getText("CONNECTION_ERROR") );
+        	}
+        	
         }	
 	});
 }

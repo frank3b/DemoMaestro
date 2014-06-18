@@ -14,7 +14,7 @@ sap.ui
 			jQuery.sap.require("model.model");
 			jQuery.sap.require("authentication.Authentication");
 			
-			loadTheme("sap_bluecrystal");
+			loadTheme("custom_bluecrystal");
 			
 			// Initialize history management
 			var that = this;

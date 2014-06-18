@@ -125,7 +125,7 @@ sap.ui.controller("app.details.NewSaleNote", {
 	
 	onDeleteItemsTap : function (evt) {
 		var oList = this.getView().oTableItems;
-		var paths = oList._aSelectedPaths;
+		//var paths = oList._aSelectedPaths;
 		
 		var lpath, posPath;
 		var oData = this.getView().getModel().getData();
@@ -134,9 +134,9 @@ sap.ui.controller("app.details.NewSaleNote", {
 		for ( var i = 0; i < itemsSelected.length; i++) {			
 			//delete from model
 			var sPath = itemsSelected[i].getBindingContext().sPath;
-			var lpath = sPath.split("/");
+			lpath = sPath.split("/");
 			posPath = lpath[lpath.length - 1];
-			var productTmp = oData.Products[posPath];
+			//var productTmp = oData.Products[posPath];
 			oData.Products.splice(posPath, 1);
 			this.getView().getModel().setData(oData);
 			
@@ -180,6 +180,7 @@ sap.ui.controller("app.details.NewSaleNote", {
 					saleNote.TotalValue = totalValue;
 					saleNote.Status = oData.Status;
 					saleNote.CurrencyCode = oData.CurrencyCode;
+					saleNote.Type = oData.SaleNoteType;
 					
 					Kinvey.DataStore.save('SalesNotes', saleNote, {
 					    success: function(response) {

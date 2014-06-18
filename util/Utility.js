@@ -22,24 +22,6 @@ function initLocalization(propertiesFile) {
  * @param oView - view the contains list to search on
  * @param newValue - the value to search for
  */
-function searchOld(oView, newValue) {
-    var filterPattern = newValue.toLowerCase(), oList = oView.oList, 
-    listItems = oList.getItems(), i, vBoxitems, visibility;
-
-    for (i = 0; i < listItems.length; i++) {
-	vBoxitems = listItems[i].getContent()[0].getItems();
-	visibility = false;
-	$.each(vBoxitems, function(index, item) {
-
-	    if (item.getText().toLowerCase().indexOf(filterPattern) != -1) {
-			visibility = true;
-			return false; // break
-	    };
-	});
-	listItems[i].setVisible(visibility);
-
-    };
-};
 
 function search(oView, newValue) {
     var filterPattern = newValue.toLowerCase(), oList = oView.oList, 

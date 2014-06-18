@@ -1,6 +1,7 @@
 var oSalesNotesModel = new sap.ui.model.json.JSONModel();
 var oPetitionersModel = null;
 var oProductsModel = null;
+var oStockModel = new sap.ui.model.json.JSONModel();
 
 function getProduct(code) {
 	var product = null;
@@ -18,7 +19,7 @@ function getProduct(code) {
 }
 
 function getProducts() {
-	var promiseProducts = Kinvey.DataStore.find('Products', null,	{
+	Kinvey.DataStore.find('Products', null,	{
 		success : function(response) {
 			oProductsModel = new sap.ui.model.json.JSONModel();
 			oProductsModel.setJSON(JSON.stringify(response));
