@@ -100,8 +100,9 @@ sap.ui.controller("app.details.Stock", {
     
     onFilterSelected : function(oEvent) {
     	var oView = this.getView();
+    	var oButton = oEvent.getSource();
     	
-    	oView.oFilterResponsivePopover.openBy(this);
+    	oView.oFilterResponsivePopover.openBy(oButton);
     },
     
     onCancelFilterTap : function(oEvent) {
