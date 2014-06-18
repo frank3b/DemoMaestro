@@ -81,7 +81,7 @@
     <icon src="img/57_iPhone_Desktop_Launch.png"  gap:platform="winphone" />
     <icon src="img/57_iPhone_Desktop_Launch.png" gap:platform="winphone"   gap:role="background" />
 	
-    <!-- Define app splash screen for each platform. -->
+    <!-- Define app splash screen for each platform. 
     <gap:splash src="res/drawable-ldpi/splash.png"  gap:platform="android" gap:density="ldpi" />
     <gap:splash src="res/drawable-mdpi/splash.png"  gap:platform="android" gap:density="mdpi" />
     <gap:splash src="res/drawable-hdpi/splash.png"  gap:platform="android" gap:density="hdpi" />
@@ -93,7 +93,7 @@
     <gap:splash src="res/screen/ios/screen-ipad-portrait.png"      gap:platform="ios"     width="768" height="1024" />
     <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
-
+	-->
     <!--
         Define access to external domains.
 
