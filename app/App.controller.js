@@ -97,8 +97,8 @@ sap.ui
 				    		oView.onBeforeShow(oData);
 				    	}
 			    	}
-				    (bMaster) ? splitApp.toMaster(sViewId, oDataObject)
-					    : splitApp.toDetail(sViewId, oDataObject);
+				    (bMaster) ? splitApp.toMaster(sViewId, "show", oDataObject)
+					    : splitApp.toDetail(sViewId, "slide", oDataObject);
 				}
 
 				// write history
