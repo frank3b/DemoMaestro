@@ -79,7 +79,7 @@ sap.ui.jsview("app.App", {
         */
 		
 		//FIXME - remove when no use Kinvey
-		/*var promise = Kinvey.init({
+		var promise = Kinvey.init({
 		    appKey    : 'kid_VTS8kUwpI9',
 		    appSecret : 'a34280b4eff141aa94bdaf9aef12a48a'
 		});
@@ -88,7 +88,6 @@ sap.ui.jsview("app.App", {
 			getPetitioners();
 			getProducts();	
 		});
-		*/
 
         return this.splitApp;
     }
