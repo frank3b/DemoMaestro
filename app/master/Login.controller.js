@@ -2,7 +2,6 @@
 sap.ui.controller("app.master.Login", {
 
 	onInit : function() {
-		
 	},
 	
 	onBeforeShow : function(evt) {

@@ -77,7 +77,6 @@ sap.ui.jsview("app.App", {
         this.app.toDetail("CoffeeList");
         this.app.toMaster("Menu");
         */
-		
 
         return this.splitApp;
     }
