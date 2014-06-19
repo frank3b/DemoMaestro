@@ -75,6 +75,7 @@ sap.ui.controller("app.details.Stock", {
 	
 	loadContent: function(){
 		var oView = this.getView();
+		sap.ui.getCore().getEventBus().publish("busyDialog", "open");
 		
 		var promiseStock = Kinvey.DataStore.find('Stock', null, {
 			success : function(response) {
@@ -91,6 +92,7 @@ sap.ui.controller("app.details.Stock", {
 		promiseStock.then( function() {
 			oView.oList.setModel(oStockModel);
 			oView.oList.bindItems("/", this.getView().items);
+			sap.ui.getCore().getEventBus().publish("busyDialog", "close");
 		});
 	},
 	
