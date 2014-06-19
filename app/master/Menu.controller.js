@@ -189,7 +189,7 @@ sap.ui.controller("app.master.Menu", {
 		
 		promiseSalesNotes.then( function() {
 			oView.oList.setModel(oSalesNotesModel);
-			oView.oList.bindItems("/", this.getView().items);
+			oView.oList.bindItems("/", oView.items);
 			sap.ui.getCore().getEventBus().publish("busyDialog", "close");
 		});
 		

@@ -91,7 +91,7 @@ sap.ui.controller("app.details.Stock", {
 		
 		promiseStock.then( function() {
 			oView.oList.setModel(oStockModel);
-			oView.oList.bindItems("/", this.getView().items);
+			oView.oList.bindItems("/", oView.items);
 			sap.ui.getCore().getEventBus().publish("busyDialog", "close");
 		});
 	},
