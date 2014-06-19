@@ -12,9 +12,9 @@ sap.ui.controller("app.master.Menu", {
 			//var oFilter = new sap.ui.model.Filter("Status", sap.ui.model.FilterOperator.Contains, "Inicial");
 			
 			// update list binding
-			var list = this.getView().oList;
-			var binding = list.getBinding("items");
-			binding.filter([]);
+			//var list = this.getView().oList;
+			//var binding = list.getBinding("items");
+			//binding.filter([]);
 	 },
 	/**
 	 * Similar to onAfterRendering, but this hook is invoked before the
@@ -170,7 +170,7 @@ sap.ui.controller("app.master.Menu", {
 	
 	loadContent: function(){
 		var oView = this.getView();
-		sap.ui.getCore().getEventBus().publish("busyDialog", "open");
+		//sap.ui.getCore().getEventBus().publish("busyDialog", "open");
 		
 		var promiseSalesNotes = Kinvey.DataStore.find('SalesNotes', null, {
 			success : function(response) {
@@ -190,7 +190,7 @@ sap.ui.controller("app.master.Menu", {
 		promiseSalesNotes.then( function() {
 			oView.oList.setModel(oSalesNotesModel);
 			oView.oList.bindItems("/", oView.items);
-			sap.ui.getCore().getEventBus().publish("busyDialog", "close");
+			//sap.ui.getCore().getEventBus().publish("busyDialog", "close");
 		});
 		
     	
