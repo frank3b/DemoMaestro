@@ -178,7 +178,7 @@ sap.ui.controller("app.master.Menu", {
 		
 	},
 	
-	loadContent: function(oController){
+	loadContent: function(){
 		var oView = this.getView();
 		//sap.ui.getCore().getEventBus().publish("busyDialog", "open");
 		
@@ -202,12 +202,12 @@ sap.ui.controller("app.master.Menu", {
 			oView.oList.bindItems("/", oView.items, oView.sorter);
 			
 			if(oView.iconTabBar.getSelectedKey() == 'StatusPositive'){
-				if(oController){
-					oController._handleTabSelectFilter('StatusPositive');
+				if(oView.getController()){
+					oView.getController()._handleTabSelectFilter('StatusPositive');
 				}
 			} else if(oView.iconTabBar.getSelectedKey() == 'StatusNegative'){
-				if(oController){
-					oController._handleTabSelectFilter('StatusNegative');
+				if(oView.getController()){
+					oView.getController()._handleTabSelectFilter('StatusNegative');
 				}
 			}
 		});
@@ -216,7 +216,7 @@ sap.ui.controller("app.master.Menu", {
 	},
 	
 	onPull : function(oEvent, oController){
-		oController.loadContent(oController);
+		oController.loadContent();
 		this.hide();
 	},
 	
