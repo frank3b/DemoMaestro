@@ -57,6 +57,11 @@ sap.ui.controller("app.master.Menu", {
 	handleTabSelect : function(oEvent) {
 		
 		var sKey = oEvent.getParameter("selectedKey");
+		
+		this._handleTabSelectFilter(sKey);
+	},
+	
+	_handleTabSelectFilter : function(sKey) {
 		var oFilter = null;
 		
 		if (sKey === "StatusPositive") {
@@ -74,8 +79,8 @@ sap.ui.controller("app.master.Menu", {
 		} else {
 			binding.filter([]);
 		}
-		
 	},
+	
 	//Open Menu
 	onMenuTap : function(oEvent) {
 		var oButton = oEvent.getSource();
@@ -99,7 +104,12 @@ sap.ui.controller("app.master.Menu", {
 
 	onExit : function(oEvent) {
 		var oBindingContext = oEvent.oSource.getBindingContext();
-
+		if (!jQuery.device.is.phone) {
+			sap.ui.getCore().getEventBus().publish("nav", "to", {
+	    		viewId : "app.details.Empty",
+	    		data : ""
+	        });
+		}
 		sap.ui.getCore().getEventBus().publish("nav", "to", {
 			viewId : "app.master.Login",
 			data : {
@@ -168,7 +178,7 @@ sap.ui.controller("app.master.Menu", {
 		
 	},
 	
-	loadContent: function(){
+	loadContent: function(oController){
 		var oView = this.getView();
 		//sap.ui.getCore().getEventBus().publish("busyDialog", "open");
 		
@@ -189,15 +199,24 @@ sap.ui.controller("app.master.Menu", {
 		
 		promiseSalesNotes.then( function() {
 			oView.oList.setModel(oSalesNotesModel);
-			oView.oList.bindItems("/", oView.items);
-			//sap.ui.getCore().getEventBus().publish("busyDialog", "close");
+			oView.oList.bindItems("/", oView.items, oView.sorter);
+			
+			if(oView.iconTabBar.getSelectedKey() == 'StatusPositive'){
+				if(oController){
+					oController._handleTabSelectFilter('StatusPositive');
+				}
+			} else if(oView.iconTabBar.getSelectedKey() == 'StatusNegative'){
+				if(oController){
+					oController._handleTabSelectFilter('StatusNegative');
+				}
+			}
 		});
 		
     	
 	},
 	
 	onPull : function(oEvent, oController){
-		oController.loadContent();
+		oController.loadContent(oController);
 		this.hide();
 	},
 	

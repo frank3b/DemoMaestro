@@ -70,9 +70,9 @@ sap.ui.jsview("app.master.Menu", {
 			id : "list",
 			growing : true,
 			growingScrollToLoad : false,
-			growingThreshold : 10,
+			growingThreshold : 10
 		});
-		this.oList.setModel(oSalesNotesModel);
+		//this.oList.setModel(oSalesNotesModel);
 
 		this.items = new sap.m.ObjectListItem({
 			title : "{_id}",
@@ -92,8 +92,8 @@ sap.ui.jsview("app.master.Menu", {
 					formatter: util.formatter.StatusState }
 			})
 		});
-		var sorter = new sap.ui.model.Sorter("_kmd/ect", true);
-		this.oList.bindItems("/", this.items, sorter);
+		//this.sorter = new sap.ui.model.Sorter("_kmd/ect", true);
+		//this.oList.bindItems("/", this.items, this.sorter);
 
 		// create search field
 		this.searchField = new sap.m.SearchField("searchField", {
@@ -135,7 +135,7 @@ sap.ui.jsview("app.master.Menu", {
 		});
 
 		// Status Icons Tabs
-		var iconTabBar = new sap.m.IconTabBar({
+		this.iconTabBar = new sap.m.IconTabBar({
 			expanded : true,
 			expandable : false,
 			content : [ searchBar, this.oList ],
@@ -167,7 +167,7 @@ sap.ui.jsview("app.master.Menu", {
 
 		return new sap.m.Page({
 			title : "{i18n>TITLE__MENU}",
-			content : [ pull, iconTabBar ],
+			content : [ pull, this.iconTabBar ],
 			headerContent : [ menuButton ],
 		/*
 		 * footer : new sap.m.Bar({ contentRight : [ this.filterSelect ] })

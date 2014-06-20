@@ -91,8 +91,8 @@ sap.ui.jsview("app.details.Stock", {
 			growingScrollToLoad : false,
 			growingThreshold : 10,
 		});
-		this.oList.setModel(oStockModel);
-
+		//this.oList.setModel(oStockModel);
+		this.oList.setBackgroundDesign("Transparent");
 		this.items = new sap.m.ObjectListItem({
 			title : "{Description}",
 			intro : "{Code}",
@@ -115,7 +115,7 @@ sap.ui.jsview("app.details.Stock", {
 			})
 		});
 		//var sorter = new sap.ui.model.Sorter("_kmd/ect", true);
-		this.oList.bindItems("/", this.items);
+		//this.oList.bindItems("/", this.items);
 
 		// create search field
 		this.searchFieldStock = new sap.m.SearchField("searchFieldStock", {

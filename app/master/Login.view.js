@@ -9,10 +9,7 @@ sap.ui.jsview("app.master.Login", {
 	},
 	
 	createContent : function(controller) {
-		var mapPannel = new sap.m.Panel('mapPanel');  
-        mapPannel.addContent(new sap.ui.core.HTML( {  
-                 	content : "<div id='map_canvas' style='width: 100%; height: 80px;'></div>"  
-        }));  
+		
 		var ologoBox = new sap.m.FlexBox({
 			alignItems: "Center",
 			justifyContent : "Center",
@@ -20,7 +17,6 @@ sap.ui.jsview("app.master.Login", {
 			      new sap.m.Image({	src : "img/logo.png" })
 			  ]
 		});
-		mapPannel.addContent(ologoBox);
 		
 		var oLayout3 = new sap.ui.layout.form.ResponsiveGridLayout();
 		var formLogin = new sap.ui.layout.form.Form("FLogin", {
@@ -49,12 +45,22 @@ sap.ui.jsview("app.master.Login", {
 			]
 		});
 		
-		mapPannel.addContent(formLogin);
+		
+		var oVBoxLogin = new sap.m.VBox("vbox2", {
+			items:[
+				new sap.ui.core.HTML( {  
+                 	content : "<div id='map_canvas' style='width: 100%; height: 80px;'></div>"  
+				}),
+				ologoBox, 
+				formLogin 
+			]
+		});
 		
 		// create page
 		this.page = new sap.m.Page({
 			title : "{i18n>TITLE__AUTH}",
 			showNavButton : false,
+			backgroundDesign : sap.m.PageBackgroundDesign.Solid,
 			/*
 			 * A simple clean way to add the login button is just to embed it 
 			 * in the footer of the page
@@ -69,9 +75,7 @@ sap.ui.jsview("app.master.Login", {
 				]
 			}), 
 			
-			content: [  mapPannel
-			            
-					] 
+			content: [ oVBoxLogin ] 
 			/*content: [ ologoBox, 
 		  		new sap.m.List({
 					items : [ 

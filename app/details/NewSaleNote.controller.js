@@ -160,14 +160,20 @@ sap.ui.controller("app.details.NewSaleNote", {
 		
 		//Validate required fields
 		var isOk = true;
+		this.getView().validFromInput.setValueState("None");
+		this.getView().validToInput.setValueState("None");
+		this.getView().petitioner.setValueState("None");
 		if(validFrom == null || validFrom == '' || validFrom == undefined){
 			isOk = false;
+			this.getView().validFromInput.setValueState("Error");
 			sap.m.MessageToast.show( oBundle.getText("SALENOTE_DATE_MSG") );
 		} else if (validTo == null || validTo == '' || validTo == undefined) {
 			isOk = false;
+			this.getView().validToInput.setValueState("Error");
 			sap.m.MessageToast.show( oBundle.getText("SALENOTE_DATE_MSG") );
 		} else if(petitioner == null || petitioner == '' || petitioner == undefined){
 			isOk = false;
+			this.getView().petitioner.setValueState("Error");
 			sap.m.MessageToast.show( oBundle.getText("SALENOTE_PETITIONER_MSG") );
 		} else {
 			if(oData.Products.length > 0){
@@ -205,6 +211,12 @@ sap.ui.controller("app.details.NewSaleNote", {
 					    			if( i == oData.Products.length ){
 					    				sap.m.MessageToast.show( oBundle.getText("SALENOTE_SUCCESS_MSG") );
 					    				//Go to Menu List
+					    				if (!jQuery.device.is.phone) {
+					    					sap.ui.getCore().getEventBus().publish("nav", "to", {
+					    			    		viewId : "app.details.Empty",
+					    			    		data : ""
+					    			        });
+					    				}
 					    				sap.ui.getCore().getEventBus().publish("nav", "to", {
 					    					viewId : "app.master.Menu",
 					    					data : {
