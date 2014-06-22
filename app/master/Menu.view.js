@@ -92,7 +92,7 @@ sap.ui.jsview("app.master.Menu", {
 					formatter: util.formatter.StatusState }
 			})
 		});
-		//this.sorter = new sap.ui.model.Sorter("_kmd/ect", true);
+		this.sorter = new sap.ui.model.Sorter("_kmd/ect", true);
 		//this.oList.bindItems("/", this.items, this.sorter);
 
 		// create search field
